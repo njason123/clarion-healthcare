@@ -18,7 +18,7 @@ function openApplyModal() {
   document.body.classList.add('modal-open');
   backdrop.classList.add('open');
   setTimeout(() => {
-    const first = backdrop.querySelector('input, button, select, textarea');
+    const first = backdrop.querySelector('input[type="radio"], button');
     if (first) first.focus();
   }, 350);
 }
@@ -31,11 +31,27 @@ function closeApplyModal() {
 }
 
 function resetModalForm() {
+  /* Show gate, hide everything else */
+  const gateView    = document.getElementById('applyGateView');
+  const gateReject  = document.getElementById('applyGateReject');
   const formView    = document.getElementById('applyFormView');
   const successView = document.getElementById('applySuccessView');
-  if (formView)    formView.style.display = 'block';
-  if (successView) successView.classList.remove('show');
 
+  if (gateView)    { gateView.style.display    = 'block'; }
+  if (gateReject)  { gateReject.style.display  = 'none';  }
+  if (formView)    { formView.style.display     = 'none';  }
+  if (successView) { successView.classList.remove('show'); }
+
+  /* Reset radio buttons */
+  document.querySelectorAll('input[name="gateRTW"], input[name="gateQual"]').forEach(r => {
+    r.checked = false;
+  });
+
+  /* Clear gate error message */
+  const gateErr = document.getElementById('gateError');
+  if (gateErr) { gateErr.style.display = 'none'; gateErr.textContent = ''; }
+
+  /* Reset form fields */
   ['m-firstName','m-lastName','m-email','m-phone','m-qual','m-avail','m-bio'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -50,6 +66,78 @@ function resetModalForm() {
   if (cvLabel) cvLabel.innerHTML = 'Click to upload <strong>.pdf, .doc, .docx</strong>';
   if (cvInput) cvInput.value = '';
 }
+
+/* ── Gate: check qualification answers ─────────────────────────── */
+window.checkGateAnswers = function () {
+  const rtwRadios  = document.querySelectorAll('input[name="gateRTW"]');
+  const qualRadios = document.querySelectorAll('input[name="gateQual"]');
+
+  const rtwVal  = [...rtwRadios].find(r => r.checked)?.value;
+  const qualVal = [...qualRadios].find(r => r.checked)?.value;
+
+  const gateErr = document.getElementById('gateError');
+
+  /* Both questions must be answered */
+  if (!rtwVal || !qualVal) {
+    if (gateErr) {
+      gateErr.textContent = 'Please answer both questions before continuing.';
+      gateErr.style.display = 'flex';
+    }
+    return;
+  }
+
+  /* Clear any previous error */
+  if (gateErr) gateErr.style.display = 'none';
+
+  const gateView   = document.getElementById('applyGateView');
+  const gateReject = document.getElementById('applyGateReject');
+  const formView   = document.getElementById('applyFormView');
+
+  /* Determine rejection reason */
+  if (rtwVal === 'no') {
+    /* Right to work failure */
+    if (gateReject) {
+      const msg = gateReject.querySelector('.gate-reject-msg');
+      if (msg) msg.textContent = 'Unfortunately we are unable to process your application as you do not currently have the right to work in Ireland. Clarion Healthcare is not sponsoring work visas at this time.';
+    }
+    if (gateView)   gateView.style.display   = 'none';
+    if (gateReject) gateReject.style.display = 'block';
+    return;
+  }
+
+  if (qualVal === 'no') {
+    /* Qualification failure */
+    if (gateReject) {
+      const msg = gateReject.querySelector('.gate-reject-msg');
+      if (msg) msg.textContent = 'Thank you for your interest in Clarion Healthcare. Unfortunately, we require a relevant qualification from our accepted list to apply for this role. Please review the qualifications panel and get in touch if you have any questions.';
+    }
+    if (gateView)   gateView.style.display   = 'none';
+    if (gateReject) gateReject.style.display = 'block';
+    return;
+  }
+
+  /* Both Yes → show the full application form */
+  if (gateView)  gateView.style.display  = 'none';
+  if (formView)  formView.style.display  = 'block';
+
+  /* Scroll form into view and focus first field */
+  setTimeout(() => {
+    const first = formView ? formView.querySelector('input, select, textarea') : null;
+    if (first) first.focus();
+  }, 100);
+};
+
+/* ── Gate: go back from rejection ──────────────────────────────── */
+window.gateGoBack = function () {
+  const gateView   = document.getElementById('applyGateView');
+  const gateReject = document.getElementById('applyGateReject');
+  if (gateReject) gateReject.style.display = 'none';
+  if (gateView)   gateView.style.display   = 'block';
+  /* Reset radio buttons */
+  document.querySelectorAll('input[name="gateRTW"], input[name="gateQual"]').forEach(r => {
+    r.checked = false;
+  });
+};
 
 /* ── Wire up events ─────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
@@ -118,7 +206,7 @@ window.submitModalForm = async function () {
 
   if (!valid) return;
 
-  // Show loading
+  /* Show loading */
   const btn = document.querySelector('.apply-submit-btn');
   const originalHTML = btn.innerHTML;
   btn.disabled = true;
@@ -129,7 +217,7 @@ window.submitModalForm = async function () {
     const db = getClient();
     let cv_url = null;
 
-    // 1. Upload CV if provided
+    /* 1. Upload CV if provided */
     const cvInput = document.getElementById('m-cvInput');
     if (cvInput && cvInput.files && cvInput.files.length > 0) {
       const file     = cvInput.files[0];
@@ -150,7 +238,7 @@ window.submitModalForm = async function () {
       }
     }
 
-    // 2. Insert application row
+    /* 2. Insert application row */
     const { error: insertError } = await db.from('applications').insert([{
       first_name:    document.getElementById('m-firstName').value.trim(),
       last_name:     document.getElementById('m-lastName').value.trim(),
@@ -165,7 +253,7 @@ window.submitModalForm = async function () {
 
     if (insertError) throw new Error(insertError.message);
 
-    // 3. Show success
+    /* 3. Show success */
     const formView    = document.getElementById('applyFormView');
     const successView = document.getElementById('applySuccessView');
     if (formView)    formView.style.display = 'none';
@@ -183,7 +271,7 @@ window.submitModalForm = async function () {
 window.openApplyModal  = openApplyModal;
 window.closeApplyModal = closeApplyModal;
 
-// Spinner animation
+/* Spinner animation */
 (function () {
   const s = document.createElement('style');
   s.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';

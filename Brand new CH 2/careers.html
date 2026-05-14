@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="images/ch.png">
-  <link rel="shortcut icon" type="image/png" href="images/ch.png">
-  <link rel="apple-touch-icon" href="images/ch.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/ch.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/ch.png">
+  <link rel="shortcut icon" href="images/ch.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/ch.png">
+  <meta name="theme-color" content="#0B3D2E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <title>Careers | Clarion Healthcare — Join Our Team in Ireland</title>
@@ -122,6 +124,17 @@
 
   <div class="beige-stripe" aria-hidden="true"></div>
 
+  <!-- Right to Work Notice -->
+  <div class="container">
+    <div class="rtw-page-notice" role="note">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>
+        <strong>Right to Work in Ireland — Important Notice</strong>
+        <p>You must have the right to work in Ireland to apply for any role with Clarion Healthcare. We are not currently sponsoring work visas. Applications from candidates without the right to work in Ireland will not be progressed.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Why Work With Us -->
   <section class="why-section" aria-labelledby="why-heading">
     <div class="container">
@@ -130,23 +143,6 @@
         <h2 class="section-title" id="why-heading">More than a job.<br>A calling.</h2>
         <p class="section-subtitle">At Clarion Healthcare, we believe that the right person in the right place can truly change a young person's life for the better.</p>
       </div>
-
-        <!-- CTA -->
-  <section class="careers-cta" aria-labelledby="careers-cta-heading">
-    <div class="container">
-      <div class="careers-cta-inner reveal">
-        <div class="careers-cta-content">
-          <span class="section-label" style="color:var(--coral)">Get In Touch</span>
-          <h2 id="careers-cta-heading">Ready to make a difference?</h2>
-          <p>We're always looking for compassionate, dedicated individuals to join our growing team. Send us your CV and we'll be in touch.</p>
-          <button onclick="openApplyModal()" class="btn btn-primary" style="margin-top:32px;border:none;cursor:pointer;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Apply Now
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
 
       <div class="why-grid">
         <div class="why-card reveal reveal-delay-1">
@@ -183,33 +179,40 @@
         <p class="section-subtitle">We have residential care homes across Ireland — so there may be an opportunity right on your doorstep.</p>
       </div>
       <div class="locations-grid">
-        <div class="location-card reveal reveal-delay-1">
+        <div class="location-card reveal reveal-delay-1" data-county="meath">
           <div class="location-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3>Dublin</h3>
-          <p>Positions available across the greater Dublin area.</p>
+          <h3>Navan, Co. Meath</h3>
+          <p>Our head office and primary hub — positions in Navan and across Co. Meath.</p>
         </div>
         <div class="location-card reveal reveal-delay-2">
           <div class="location-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3>Laois</h3>
-          <p>Opportunities in Co. Laois in the heart of Ireland.</p>
+          <h3>Dublin</h3>
+          <p>Positions available across the greater Dublin area including north and south county.</p>
         </div>
         <div class="location-card reveal reveal-delay-3">
           <div class="location-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3>Louth</h3>
-          <p>Roles available in Co. Louth on the east coast.</p>
+          <h3>Co. Laois</h3>
+          <p>Opportunities in Co. Laois in the heart of the Irish Midlands.</p>
         </div>
         <div class="location-card reveal reveal-delay-4">
           <div class="location-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3>Sligo</h3>
-          <p>Positions in Co. Sligo in the beautiful west of Ireland.</p>
+          <h3>Co. Louth</h3>
+          <p>Roles available in Co. Louth — Ireland's smallest county with a big community spirit.</p>
+        </div>
+        <div class="location-card reveal reveal-delay-4" style="grid-column: span 1;">
+          <div class="location-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Co. Sligo</h3>
+          <p>Positions in Co. Sligo in the scenic west of Ireland.</p>
         </div>
       </div>
     </div>
@@ -256,7 +259,24 @@
       </div>
     </div>
   </section>
-  
+
+  <!-- CTA -->
+  <section class="careers-cta" aria-labelledby="careers-cta-heading">
+    <div class="container">
+      <div class="careers-cta-inner reveal">
+        <div class="careers-cta-content">
+          <span class="section-label" style="color:var(--coral)">Get In Touch</span>
+          <h2 class="section-title" id="careers-cta-heading">Ready to make a difference?</h2>
+          <p>We're always looking for compassionate, dedicated individuals to join our growing team across Navan, Dublin, Meath, Laois, Louth and Sligo. Send us your CV and we'll be in touch.</p>
+          <button onclick="openApplyModal()" class="btn btn-primary" style="margin-top:32px;border:none;cursor:pointer;" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Apply Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer" role="contentinfo">
     <div class="footer-top">
       <div class="footer-brand">
@@ -295,12 +315,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Clarion Healthcare. All rights reserved. | TUSLA Registered Provider</p>
+      <p>© 2025 Clarion Healthcare Ltd. All rights reserved. | TUSLA Registered Provider | Navan, Co. Meath, Ireland</p>
       <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
     document.body.classList.add('js-ready');
 
     // Navbar scroll
@@ -395,7 +416,80 @@
         </div>
       </div>
       <div class="apply-modal-form">
-        <div id="applyFormView">
+
+        <!-- STEP 1: Pre-qualification gate -->
+        <div id="applyGateView">
+          <div class="gate-header">
+            <h3>Before you apply</h3>
+            <p>Please confirm you meet our eligibility requirements before proceeding.</p>
+          </div>
+
+          <div class="gate-rtw-notice" role="alert">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div>
+              <strong>Right to Work Requirement</strong>
+              <p>You must have the right to work in Ireland to apply. We are not currently sponsoring visas.</p>
+            </div>
+          </div>
+
+          <div class="gate-question">
+            <div class="gate-q-label">Question 1 of 2</div>
+            <p class="gate-q-text">Do you currently have the right to work in Ireland?</p>
+            <p class="gate-q-note">This includes Irish, EU/EEA citizenship or a current valid work permit for Ireland.</p>
+            <div class="gate-options" role="group" aria-label="Right to work in Ireland">
+              <label class="gate-option">
+                <input type="radio" name="gateRTW" value="yes" aria-label="Yes, I have the right to work in Ireland">
+                Yes
+              </label>
+              <label class="gate-option">
+                <input type="radio" name="gateRTW" value="no" aria-label="No, I do not have the right to work in Ireland">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="gate-question">
+            <div class="gate-q-label">Question 2 of 2</div>
+            <p class="gate-q-text">Do you hold a relevant qualification from our accepted list?</p>
+            <p class="gate-q-note">See the qualifications panel for the full list of accepted qualifications.</p>
+            <div class="gate-options" role="group" aria-label="Relevant qualification">
+              <label class="gate-option">
+                <input type="radio" name="gateQual" value="yes" aria-label="Yes, I hold a relevant qualification">
+                Yes
+              </label>
+              <label class="gate-option">
+                <input type="radio" name="gateQual" value="no" aria-label="No, I do not hold a relevant qualification">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="gate-error" id="gateError" role="alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span></span>
+          </div>
+
+          <button class="gate-continue-btn" onclick="checkGateAnswers()" type="button">
+            Continue to Application
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <!-- STEP 1b: Gate rejection view -->
+        <div id="applyGateReject" style="display:none;" role="alert" aria-live="polite">
+          <div class="gate-reject-view">
+            <div class="gate-reject-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <h3>We're sorry</h3>
+            <p class="gate-reject-msg">Thank you for your interest in Clarion Healthcare. Unfortunately, we are unable to process your application at this time.</p>
+            <p style="font-size:0.88rem;color:var(--grey);margin-bottom:28px;">If you believe this is an error or have further questions, please contact us at <a href="mailto:admin@clarionhc.com" style="color:var(--green-700);font-weight:600;">admin@clarionhc.com</a></p>
+            <button class="gate-reject-back" onclick="gateGoBack()" type="button">← Go Back</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Full application form (hidden until gate passed) -->
+        <div id="applyFormView" style="display:none;">
           <h3>Apply to join us</h3>
           <p class="apply-form-sub">Fill in the form below and a member of our team will be in touch shortly.</p>
           <div class="form-two-col">

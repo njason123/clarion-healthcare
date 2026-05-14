@@ -126,3 +126,253 @@
 }
 
 body.modal-open { overflow: hidden; }
+
+/* ══════════════════════════════════════════
+   GATE VIEW — Pre-qualification questions
+   ══════════════════════════════════════════ */
+
+.gate-header {
+  margin-bottom: 24px;
+}
+.gate-header h3 {
+  font-size: 1.55rem;
+  margin-bottom: 6px;
+  color: var(--charcoal, #1c1c2e);
+}
+.gate-header p {
+  font-size: 0.92rem;
+  color: var(--grey, #6b7280);
+  line-height: 1.65;
+}
+
+/* RTW notice box inside gate */
+.gate-rtw-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #FFF7ED;
+  border: 1.5px solid #F59E0B;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 28px;
+}
+.gate-rtw-notice svg {
+  color: #D97706;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.gate-rtw-notice strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #92400E;
+  margin-bottom: 3px;
+}
+.gate-rtw-notice p {
+  font-size: 13px;
+  color: #92400E;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Individual gate question */
+.gate-question {
+  background: var(--beige-50, #faf6ee);
+  border: 1.5px solid var(--beige-200, #e8ddd0);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.gate-question:last-of-type { margin-bottom: 0; }
+
+.gate-q-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--coral, #e8725c);
+  margin-bottom: 8px;
+}
+.gate-q-text {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--charcoal, #1c1c2e);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.gate-q-note {
+  font-size: 12px;
+  color: var(--grey, #6b7280);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.gate-options {
+  display: flex;
+  gap: 12px;
+}
+.gate-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--beige-300, #d4c5ad);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--charcoal, #1c1c2e);
+  background: var(--white, #fff);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  user-select: none;
+}
+.gate-option input[type="radio"] {
+  accent-color: var(--green-500, #2d9b6f);
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.gate-option:has(input:checked) {
+  border-color: var(--green-500, #2d9b6f);
+  background: #f0faf5;
+  color: var(--green-700, #1a6b4a);
+}
+.gate-option:hover {
+  border-color: var(--green-500, #2d9b6f);
+}
+
+/* Error message inside gate */
+.gate-error {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: #FEF2F2;
+  border: 1.5px solid #FCA5A5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #991B1B;
+  font-weight: 500;
+}
+.gate-error svg { flex-shrink: 0; color: #DC2626; }
+
+/* Gate continue button */
+.gate-continue-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px 24px;
+  background: var(--green-700, #1a6b4a);
+  color: var(--white, #fff);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 4px 20px rgba(26, 107, 74, 0.28);
+  letter-spacing: 0.02em;
+}
+.gate-continue-btn:hover {
+  background: var(--green-900, #0b3d2e);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(11, 61, 46, 0.3);
+}
+.gate-continue-btn:active { transform: translateY(0); }
+
+/* ── Gate Rejection View ────────────────── */
+.gate-reject-view {
+  text-align: center;
+  padding: 16px 8px;
+}
+.gate-reject-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #FEF2F2;
+  border: 2px solid #FCA5A5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #DC2626;
+}
+.gate-reject-view h3 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: var(--charcoal, #1c1c2e);
+}
+.gate-reject-msg {
+  font-size: 0.93rem;
+  color: var(--grey, #6b7280);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gate-reject-back {
+  background: none;
+  border: 2px solid var(--beige-300, #d4c5ad);
+  border-radius: 40px;
+  padding: 11px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey, #6b7280);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.gate-reject-back:hover {
+  border-color: var(--green-500, #2d9b6f);
+  color: var(--green-700, #1a6b4a);
+}
+
+/* ══════════════════════════════════════════
+   RIGHT TO WORK NOTICE — Careers Page
+   ══════════════════════════════════════════ */
+
+.rtw-page-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #FFFBEB;
+  border: 2px solid #F59E0B;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 40px 0 0;
+}
+.rtw-page-notice svg {
+  color: #D97706;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.rtw-page-notice div strong {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #92400E;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+.rtw-page-notice div p {
+  font-size: 14px;
+  color: #78350F;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .gate-options { flex-direction: column; }
+  .gate-option { justify-content: flex-start; }
+  .rtw-page-notice { padding: 16px 18px; gap: 12px; }
+}
