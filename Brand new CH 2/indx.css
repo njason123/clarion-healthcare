@@ -629,3 +629,112 @@ body.js-ready .anim.anim-in {
 .service-card-fallback { gap:14px; }
 .service-card-fallback svg { width:56px; height:56px; opacity:0.9; }
 .service-card-fallback span { font-size:11px; letter-spacing:0.15em; opacity:0.8; }
+
+/* ══════════════════════════════════════════
+   INDEX PAGE POLISH — v2.1
+   ══════════════════════════════════════════ */
+
+/* ── Stats bar number shimmer ─────────────── */
+.stat-number {
+  background: linear-gradient(135deg, var(--green-700), var(--green-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── About intro image badge upgrade ──────── */
+.about-image-badge {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.about-image-wrap:hover .about-image-badge {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(124,106,82,0.22);
+}
+
+/* ── Service card — top accent border on hover */
+.service-card {
+  border-top: 3px solid transparent;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.service-card:hover {
+  border-top-color: var(--coral);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Service link arrow animation ─────────── */
+.service-link {
+  letter-spacing: 0.01em;
+}
+
+/* ── Value card icon hover ─────────────────── */
+.value-card:hover .value-icon {
+  background: var(--green-100);
+  color: var(--green-900);
+  transform: scale(1.08);
+}
+.value-icon {
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+
+/* ── Hiring section role rows ─────────────── */
+.hiring-role {
+  border-left: 3px solid transparent;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.hiring-role:hover {
+  background: rgba(255,255,255,0.13);
+  border-left-color: var(--coral-light);
+  transform: translateX(6px);
+}
+
+/* ── Testimonial card upgrade ─────────────── */
+.testimonial-card {
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.testimonial-card:hover {
+  border-color: rgba(244,163,140,0.3);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+
+/* ── Partners strip logos ─────────────────── */
+.partners-row img {
+  transition: opacity 0.3s, filter 0.3s, transform 0.3s;
+}
+.partners-row img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.04);
+}
+
+/* ── Testimonials section subtle separator ── */
+.testimonials-section {
+  border-top: 4px solid rgba(232,114,92,0.18);
+}
+
+/* ── About intro section: subtle left accent on h2 */
+.about-intro-text .section-title {
+  padding-left: 0;
+  position: relative;
+}
+.about-intro-text .section-title::before {
+  display: none;
+}
+
+/* ── Services section header underline ─────── */
+.services-header .section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--coral);
+  border-radius: 2px;
+  margin: 16px auto 0;
+}
+
+/* ── Mobile polish ───────────────────────── */
+@media (max-width: 560px) {
+  .hiring-inner { border-radius: var(--radius-md); }
+  .testimonial-card { border-radius: var(--radius-md); }
+}

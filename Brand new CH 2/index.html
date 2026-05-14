@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="images/ch.png">
-  <link rel="shortcut icon" type="image/png" href="images/ch.png">
-  <link rel="apple-touch-icon" href="images/ch.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/ch.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/ch.png">
+  <link rel="shortcut icon" href="images/ch.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/ch.png">
+  <meta name="theme-color" content="#0B3D2E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Clarion Healthcare | Residential Care Services Ireland</title>
   <meta name="description" content="Clarion Healthcare provides compassionate, TUSLA-registered residential care for young people across Ireland. Safe homes, expert teams, child-centred therapeutic support — 24/7, 365 days a year.">
@@ -21,7 +23,48 @@
   <meta name="twitter:title" content="Clarion Healthcare | Residential Care Services Ireland">
   <meta name="twitter:description" content="TUSLA-registered residential care for young people across Ireland.">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Clarion Healthcare","description":"TUSLA-registered provider of residential care for young people across Ireland.","url":"https://www.clarionhc.com","logo":"https://www.clarionhc.com/images/ch.png","telephone":"+353899407737","email":"Admin@clarionhc.com","address":{"@type":"PostalAddress","streetAddress":"Johnstown","addressLocality":"Navan","addressRegion":"County Meath","addressCountry":"IE"},"sameAs":["https://www.instagram.com/clarionhealthcare_ireland/"]}
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Clarion Healthcare",
+    "description": "TUSLA-registered provider of residential care for young people across Ireland. Serving Navan, Co. Meath, Dublin, Laois, Louth and Sligo.",
+    "url": "https://www.clarionhc.com",
+    "logo": "https://www.clarionhc.com/images/ch.png",
+    "image": "https://www.clarionhc.com/images/ch.png",
+    "telephone": ["+353851791669", "+353870032013"],
+    "email": "admin@clarionhc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Johnstown",
+      "addressLocality": "Navan",
+      "addressRegion": "County Meath",
+      "postalCode": "",
+      "addressCountry": "IE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "53.648",
+      "longitude": "-6.741"
+    },
+    "areaServed": [
+      {"@type": "State", "name": "County Meath"},
+      {"@type": "City",  "name": "Navan"},
+      {"@type": "City",  "name": "Dublin"},
+      {"@type": "State", "name": "County Laois"},
+      {"@type": "State", "name": "County Louth"},
+      {"@type": "State", "name": "County Sligo"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Residential Care Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Care"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Therapeutic Support"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Life Skills and Education"}}
+      ]
+    },
+    "sameAs": ["https://www.instagram.com/clarionhealthcare_ireland/"]
+  }
   </script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="indx.css">
@@ -488,7 +531,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Clarion Healthcare. All rights reserved. | TUSLA Registered Provider</p>
+      <p>© 2025 Clarion Healthcare Ltd. All rights reserved. | TUSLA Registered Provider | Navan, Co. Meath, Ireland</p>
       <div class="footer-bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -592,7 +635,80 @@
         </div>
       </div>
       <div class="apply-modal-form">
-        <div id="applyFormView">
+
+        <!-- STEP 1: Pre-qualification gate -->
+        <div id="applyGateView">
+          <div class="gate-header">
+            <h3>Before you apply</h3>
+            <p>Please confirm you meet our eligibility requirements before proceeding.</p>
+          </div>
+
+          <div class="gate-rtw-notice" role="alert">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div>
+              <strong>Right to Work Requirement</strong>
+              <p>You must have the right to work in Ireland to apply. We are not currently sponsoring visas.</p>
+            </div>
+          </div>
+
+          <div class="gate-question">
+            <div class="gate-q-label">Question 1 of 2</div>
+            <p class="gate-q-text">Do you currently have the right to work in Ireland?</p>
+            <p class="gate-q-note">This includes Irish, EU/EEA citizenship or a current valid work permit for Ireland.</p>
+            <div class="gate-options" role="group" aria-label="Right to work in Ireland">
+              <label class="gate-option">
+                <input type="radio" name="gateRTW" value="yes" aria-label="Yes, I have the right to work in Ireland">
+                Yes
+              </label>
+              <label class="gate-option">
+                <input type="radio" name="gateRTW" value="no" aria-label="No, I do not have the right to work in Ireland">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="gate-question">
+            <div class="gate-q-label">Question 2 of 2</div>
+            <p class="gate-q-text">Do you hold a relevant qualification from our accepted list?</p>
+            <p class="gate-q-note">See the qualifications panel for the full list of accepted qualifications.</p>
+            <div class="gate-options" role="group" aria-label="Relevant qualification">
+              <label class="gate-option">
+                <input type="radio" name="gateQual" value="yes" aria-label="Yes, I hold a relevant qualification">
+                Yes
+              </label>
+              <label class="gate-option">
+                <input type="radio" name="gateQual" value="no" aria-label="No, I do not hold a relevant qualification">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="gate-error" id="gateError" role="alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span></span>
+          </div>
+
+          <button class="gate-continue-btn" onclick="checkGateAnswers()" type="button">
+            Continue to Application
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <!-- STEP 1b: Gate rejection view -->
+        <div id="applyGateReject" style="display:none;" role="alert" aria-live="polite">
+          <div class="gate-reject-view">
+            <div class="gate-reject-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <h3>We're sorry</h3>
+            <p class="gate-reject-msg">Thank you for your interest in Clarion Healthcare. Unfortunately, we are unable to process your application at this time.</p>
+            <p style="font-size:0.88rem;color:var(--grey);margin-bottom:28px;">If you believe this is an error or have further questions, please contact us at <a href="mailto:admin@clarionhc.com" style="color:var(--green-700);font-weight:600;">admin@clarionhc.com</a></p>
+            <button class="gate-reject-back" onclick="gateGoBack()" type="button">← Go Back</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Full application form (hidden until gate passed) -->
+        <div id="applyFormView" style="display:none;">
           <h3>Apply to join us</h3>
           <p class="apply-form-sub">Fill in the form below and a member of our team will be in touch shortly.</p>
           <div class="form-two-col">

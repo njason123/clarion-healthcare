@@ -162,7 +162,75 @@
 .location-card p { font-size:0.9rem; color:var(--grey); line-height:1.7; }
 
 @media(max-width:900px){ .locations-grid { grid-template-columns:1fr 1fr; } }
-@media(max-width:560px){ .locations-grid { grid-template-columns:1fr; } }
+@media(max-width:560px){ .locations-grid { grid-template-columns:1fr 1fr; } }
+
+/* ══════════════════════════════════════════
+   CAREERS PAGE POLISH — v2.1
+   ══════════════════════════════════════════ */
+
+/* ── Why-cards: subtle gradient number ────── */
+.why-number {
+  background: linear-gradient(135deg, var(--beige-200), var(--beige-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity 0.25s;
+}
+.why-card:hover .why-number {
+  opacity: 0.5;
+}
+
+/* ── Why-card left accent with gradient ─── */
+.why-card::before {
+  background: linear-gradient(to bottom, var(--coral), var(--coral-light));
+}
+
+/* ── Benefits: icon glow on hover ──────────── */
+.benefit-item:hover .benefit-icon {
+  background: rgba(232,114,92,0.25);
+  transform: scale(1.08);
+}
+.benefit-icon {
+  transition: background 0.25s, transform 0.25s;
+}
+
+/* ── Location card: icon scale on hover ────── */
+.location-card:hover .location-icon {
+  background: var(--green-100);
+  color: var(--green-900);
+}
+.location-icon {
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── Benefits section header ────────────── */
+.benefits-header .section-label { color: var(--coral-light); }
+
+/* ── Careers CTA inner: richer gradient ─── */
+.careers-cta-inner {
+  background: linear-gradient(135deg, #FDFBF7 0%, #FFFFFF 100%);
+  border: 1px solid var(--beige-200);
+}
+.careers-cta-content .section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--coral);
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+/* ── Meath mention in locations ──────────── */
+.location-card[data-county="meath"] {
+  border-color: var(--green-100);
+  border-width: 2px;
+}
+
+/* ── Benefits grid on very small screens ─── */
+@media(max-width:400px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+}
 
 /* ── Photo strip icon overlays ────────────── */
 .careers-photo-left::after,
